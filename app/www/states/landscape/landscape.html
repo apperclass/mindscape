@@ -1,0 +1,32 @@
+<ion-view view-title="Landscape">
+      <ion-content>
+
+        <div class="list list-inset">
+          <h1>{{landscapeCtrl.task.name}}</h2>
+          <h2>{{landscapeCtrl.formatCountdown(landscapeCtrl.countdown)}}</h2>
+        
+          <!-- Volume -->
+          <div class="range">
+            <i class="icon ion-music-note"></i>
+            <input type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="5" max="30" step="5">
+            <i class="icon ion-leaf"></i>
+          </div>
+
+          <div class="wrap-centered-button">
+            <button class="button button-positive">
+              <i class="icon ion-pause"></i>
+            </button>
+            <button ui-sref="home" class="button button-positive">
+              <i class="icon ion-stop"></i>
+            </button>
+          </div>
+
+          <div style="height: 20px"></div>
+
+          <div class="wrap-centered-button">
+            <button class="button button-positive" ui-sref="completed">Mark as completed</button>
+          </div>
+
+        </div>
+      </ion-content>
+  </ion-view>
