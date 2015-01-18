@@ -2,21 +2,28 @@
       <ion-content>
 
         <div class="list list-inset">
-          <h1>{{landscapeCtrl.task.name}}</h2>
-          <h2>{{landscapeCtrl.formatCountdown(landscapeCtrl.countdown)}}</h2>
-        
+          <h1>{{landscapeCtrl.task.name}}</h1>
+
+          <h2>{{landscapeCtrl.timer.getFormattedCounter()}}</h2>
+          <h3>Playing: {{landscapeCtrl.task.landscape}}</h3>
+
           <!-- Volume -->
           <div class="range">
             <i class="icon ion-music-note"></i>
-            <input type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="5" max="30" step="5">
+            <input ng-change="landscapeCtrl.updateBalance()" type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="0" max="100" step="1">
             <i class="icon ion-leaf"></i>
           </div>
 
           <div class="wrap-centered-button">
-            <button class="button button-positive">
+            <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.player.playing" class="button button-positive">
               <i class="icon ion-pause"></i>
             </button>
-            <button ui-sref="home" class="button button-positive">
+
+            <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.player.playing" class="button button-positive">
+              <i class="icon ion-play"></i>
+            </button>
+
+            <button ng-click="landscapeCtrl.stop()" class="button button-positive">
               <i class="icon ion-stop"></i>
             </button>
           </div>
@@ -24,7 +31,7 @@
           <div style="height: 20px"></div>
 
           <div class="wrap-centered-button">
-            <button class="button button-positive" ui-sref="completed">Mark as completed</button>
+            <button class="button button-positive" ng-click="landscapeCtrl.markCompleted()">Mark as completed</button>
           </div>
 
         </div>

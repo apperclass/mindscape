@@ -17,25 +17,25 @@
               ng-class="{ selected: homeCtrl.task.landscape == homeCtrl.landscapeA}" 
               ng-click="homeCtrl.selectLandscape(homeCtrl.landscapeA)" 
               class="landscape landscape-a" 
-              src="img/underwater.png">
+              src="img/ocean.png">
 
             <img 
               ng-class="{ selected: homeCtrl.task.landscape == homeCtrl.landscapeB}" 
               ng-click="homeCtrl.selectLandscape(homeCtrl.landscapeB)" 
               class="landscape landscape-b" 
-              src="img/seaside.png">
+              src="img/dock-city.png">
           </div>
 
 
           <!-- Volume -->
           <div class="range">
                   <i class="icon ion-music-note"></i>
-                  <input type="range" name="balance" ng-model="balance"  min="0" max="100">
+                  <input type="range" name="balance" ng-model="homeCtrl.task.balance"  min="0" max="100" step="1">
                   <i class="icon ion-leaf"></i>
           </div>
 
           <div class="wrap-centered-button">
-            <button ui-sref="landscape" class="button button-positive">
+            <button ui-sref="landscape" ui-sref-opts="{ reload: true }" class="button button-positive">
               <i class="icon ion-play"></i>
             </button>
           </div>

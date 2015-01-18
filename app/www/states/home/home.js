@@ -13,10 +13,10 @@ angular.module('states.home', ['task'])
 
 })
 .controller('HomeCtrl', function(currentTask){
-    this.landscapeA = 'Mountain';
-    this.landscapeB = 'Seaside';
+    this.landscapeA = 'ocean';
+    this.landscapeB = 'dock-city';
     this.task = currentTask;
-    this.task.landscape = 'Mountain';
+    this.task.landscape = this.landscapeA;
 
     this.selectLandscape = function(landscape){
         this.task.landscape = landscape;
