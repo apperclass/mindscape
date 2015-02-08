@@ -1,4 +1,13 @@
 <ion-view view-title="Create Task">
+
+
+  <ion-nav-buttons side="primary">
+    <button nav-transition="none" class="button" ui-sref="history">
+      <i class="ion-navicon-round icon"></i>
+    </button>
+  </ion-nav-buttons>
+
+
       <ion-content>
 
         <div class="list list-inset">
@@ -35,7 +44,7 @@
           </div>
 
           <div class="wrap-centered-button">
-            <button ui-sref="landscape" ui-sref-opts="{ reload: true }" class="button button-positive">
+            <button ng-click="homeCtrl.start()" class="button button-positive">
               <i class="icon ion-play"></i>
             </button>
           </div>

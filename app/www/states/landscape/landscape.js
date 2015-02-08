@@ -1,75 +1,77 @@
 'use strict';
 
-angular.module('states.landscape', ['audio','task','time'])
+angular.module('states.landscape', ['audio','task','time', 'history'])
 
-.config(function ($stateProvider) {
+    .config(function ($stateProvider) {
 
-    $stateProvider.state('landscape', {
-        url: '/landscape',
-        templateUrl: 'states/landscape/landscape.html',
-        parent: 'public',
-        controller: 'LandscapeCtrl as landscapeCtrl',
-        onEnter: function(){
+        $stateProvider.state('landscape', {
+            url: '/landscape',
+            templateUrl: 'states/landscape/landscape.html',
+            parent: 'public',
+            controller: 'LandscapeCtrl as landscapeCtrl'
+        });
+    })
+    .controller('LandscapeCtrl', function(CurrentTask, Player, Timer, $interval, $state, History){
+        this.pause = false;
+        this.task = CurrentTask;
+        this.Player = Player;
+        this.Timer = Timer;
 
-        },
-        onExit: function(){
+        Timer.init(CurrentTask.duration * 60);
+        Player.init(CurrentTask);
+        Player.play();
 
+        /**
+         * Time update
+         */
+        function timeUpdate(){
+            Timer.counter--;
+            if (Timer.counter < 1) {
+                Player.stop();
+                $interval.cancel(interval);
+                CurrentTask.completedIn = (CurrentTask.duration * 60) - Timer.counter;
+                $state.go('completed');
+            }
         }
-    });
-})
+        var interval = $interval(timeUpdate,1000);
+        this.updateBalance = function(){
+            Player.setBalance(this.task);
+        };
 
-.controller('LandscapeCtrl', function(currentTask, player, timer, $interval, $state){
-
-    var ctrl = this;
-    this.pause = false;
-    this.task = currentTask;
-    this.player = player;
-    this.timer = timer;
-
-    timer.init(currentTask.duration * 60);
-    player.init(currentTask);
-    player.play();
-
-    function timeUpdate(){
-        timer.counter--;
-        if (timer.counter < 1) {
-            player.stop();
+        /**
+         * Stop and go to home
+         */
+        this.stop = function(){
+            Player.stop();
+            $state.go('home');
             $interval.cancel(interval);
-            currentTask.completedIn = (currentTask.duration * 60) - timer.counter;
+        };
+
+        /**
+         * Pause
+         */
+        this.pause = function(){
+            Player.pause();
+            $interval.cancel(interval);
+        };
+
+        /**
+         * Play
+         */
+        this.play = function(){
+            Player.play();
+            interval = $interval(timeUpdate,1000);
+        };
+
+        /**
+         * Mark the task as Completed
+         */
+        this.markCompleted = function(){
+            Player.stop();
+            $interval.cancel(interval);
+            CurrentTask.completedIn = (CurrentTask.duration * 60) - Timer.counter;
+            History.pushCompletedTask(CurrentTask);
             $state.go('completed');
-        }
-    }
+        };
 
-    var interval = $interval(timeUpdate,1000);
-
-
-    this.updateBalance = function(){
-        player.setBalance(this.task);
-    };
-
-    this.stop = function(){
-        player.stop();
-        $state.go('home');
-        $interval.cancel(interval);
-    };
-
-    this.pause = function(){
-        player.pause();
-        $interval.cancel(interval);
-    };
-
-    this.play = function(){
-        player.play();
-        interval = $interval(timeUpdate,1000);
-    };
-
-    this.markCompleted = function(){
-        player.stop();
-        $interval.cancel(interval);
-        currentTask.completedIn = (currentTask.duration * 60) - timer.counter;
-        $state.go('completed');
-    };
-
-
-
-});
+    });

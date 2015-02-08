@@ -1,4 +1,11 @@
 <ion-view view-title="Completed">
+
+    <ion-nav-buttons side="primary">
+        <button  nav-transition="none" class="button" ui-sref="history">
+            <i class="ion-navicon-round icon"></i>
+        </button>
+    </ion-nav-buttons>
+
       <ion-content>
         <p>Congratulations!<br/>Task "{{completedCtrl.task.name}}" Completed in {{ completedCtrl.task.getCompletedInFormatted() }}<p>
         <div class="wrap-centered-button">

@@ -5,7 +5,7 @@
           <div class="list list-inset" style="background: transparent;">
             <h1>{{landscapeCtrl.task.name}}</h1>
 
-            <h2>{{landscapeCtrl.timer.getFormattedCounter()}}</h2>
+            <h2>{{landscapeCtrl.Timer.getFormattedCounter()}}</h2>
             <h3>Playing: {{landscapeCtrl.task.landscape}}</h3>
 
             <!-- Volume -->
@@ -16,11 +16,11 @@
             </div>
 
             <div class="wrap-centered-button">
-              <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.player.playing" class="button button-positive">
+              <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.Player.playing" class="button button-positive">
                 <i class="icon ion-pause"></i>
               </button>
 
-              <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.player.playing" class="button button-positive">
+              <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.Player.playing" class="button button-positive">
                 <i class="icon ion-play"></i>
               </button>
 

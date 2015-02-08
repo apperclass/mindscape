@@ -2,11 +2,16 @@
 
 angular.module('audio', [])
 
-    .factory('player', function() {
-        var player = {
+    .factory('Player', function() {
+        return {
             musicAudio: null,
             ambienceAudio: null,
             playing: false,
+
+            /**
+             * Init the player with a task
+             * @param task
+             */
             init: function(task){
                 this.musicAudio = new Audio(task.getMusicSrc());
                 this.ambienceAudio = new Audio(task.getAmbienceSrc());
@@ -17,17 +22,26 @@ angular.module('audio', [])
                 this.musicAudio.volume = task.getMusicVolume();
                 this.ambienceAudio.volume = task.getAmbienceVolume();
             },
+            /**
+             * Play
+             */
             play: function(){
                 console.log(this);
                 this.musicAudio.play();
                 this.ambienceAudio.play();
                 this.playing = true;
             },
+            /**
+             * Pause
+             */
             pause: function(){
                 this.musicAudio.pause();
                 this.ambienceAudio.pause();
                 this.playing = false;
             },
+            /**
+             * Stop
+             */
             stop: function(){
                 this.musicAudio.pause();
                 this.ambienceAudio.pause();
@@ -35,14 +49,13 @@ angular.module('audio', [])
                 this.musicAudio.currentTime = 0;
                 this.ambienceAudio.currentTime = 0;
             },
+            /**
+             * Set Balance with a task
+             * @param task
+             */
             setBalance: function(task){
                 this.musicAudio.volume = task.getMusicVolume();
                 this.ambienceAudio.volume = task.getAmbienceVolume();
             }
-
-
-
-
         };
-        return player;
     });

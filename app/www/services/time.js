@@ -2,12 +2,20 @@
 
 angular.module('time', [])
 
-    .factory('timer', function($interval) {
-        var timer = {
+    .factory('Timer', function($interval) {
+        return {
             counter: 0,
+            /**
+             * Init the timer with a duration in seconds
+             * @param duration
+             */
             init: function(duration){
                 this.counter = duration
             },
+            /**
+             * Return a formatted count-down string
+             * @returns {string}
+             */
             getFormattedCounter: function(){
                 var sec_num = parseInt(this.counter, 10);
                 var minutes = Math.floor(sec_num / 60);
@@ -18,7 +26,4 @@ angular.module('time', [])
                 return time;
             }
         };
-
-
-        return timer;
     });

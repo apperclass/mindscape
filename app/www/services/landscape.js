@@ -37,9 +37,18 @@ angular.module('landscape', ['underscore'])
         ];
 
         return {
+            /**
+             * Get all levels
+             * @returns array
+             */
             getAll: function(){
                 return levels
             },
+            /**
+             * Get n random levels
+             * @param number
+             * @returns array
+             */
             getSomeRandom: function(number){
                 number = number || 2;
                 var pickedLevels = _.sample(this.getPossibleNextLandscapes(), number);
@@ -49,6 +58,10 @@ angular.module('landscape', ['underscore'])
                 });
                 return pickedLevels;
             },
+            /**
+             * Get landscapes not just played
+             * @returns array
+             */
             getPossibleNextLandscapes: function(){
                 return _.partition(levels, function(level){
                     return level.justPicked !== true;

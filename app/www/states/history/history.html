@@ -1,0 +1,16 @@
+<ion-view view-title="History">
+    <ion-nav-buttons side="primary">
+        <button nav-transition="none" class="button active" ui-sref="home">
+            <i class="ion-navicon-round icon"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+
+        <ion-list>
+            <ion-item ng-repeat="task in historyCtrl.tasks">
+                {{task.duration}} - {{ task.name }} - {{ task.landscape }}
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

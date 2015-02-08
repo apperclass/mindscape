@@ -6,9 +6,22 @@ angular.module('history', [])
         var completedTasks = [];
 
         return {
+            /**
+             * Add a completed task to the history
+             * @param task
+             */
             pushCompletedTask: function(task){
-                completedTasks.push(task);
+                var completedTask = {
+                    name: task.name,
+                    landscape: task.landscape,
+                    duration: task.getCompletedInFormatted()
+                };
+                completedTasks.push(completedTask);
             },
+            /**
+             * Get all completed Tasks
+             * @returns {Array}
+             */
             getAll: function(){
                 return completedTasks;
             }
