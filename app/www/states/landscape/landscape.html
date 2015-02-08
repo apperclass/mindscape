@@ -1,39 +1,41 @@
+<div class="bg-{{landscapeCtrl.task.landscape}} bg-landscape">
 <ion-view view-title="Landscape">
       <ion-content>
 
-        <div class="list list-inset">
-          <h1>{{landscapeCtrl.task.name}}</h1>
+          <div class="list list-inset" style="background: transparent;">
+            <h1>{{landscapeCtrl.task.name}}</h1>
 
-          <h2>{{landscapeCtrl.timer.getFormattedCounter()}}</h2>
-          <h3>Playing: {{landscapeCtrl.task.landscape}}</h3>
+            <h2>{{landscapeCtrl.timer.getFormattedCounter()}}</h2>
+            <h3>Playing: {{landscapeCtrl.task.landscape}}</h3>
 
-          <!-- Volume -->
-          <div class="range">
-            <i class="icon ion-music-note"></i>
-            <input ng-change="landscapeCtrl.updateBalance()" type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="0" max="100" step="1">
-            <i class="icon ion-leaf"></i>
+            <!-- Volume -->
+            <div class="range">
+              <i class="icon ion-music-note"></i>
+              <input ng-change="landscapeCtrl.updateBalance()" type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="0" max="100" step="1">
+              <i class="icon ion-leaf"></i>
+            </div>
+
+            <div class="wrap-centered-button">
+              <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.player.playing" class="button button-positive">
+                <i class="icon ion-pause"></i>
+              </button>
+
+              <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.player.playing" class="button button-positive">
+                <i class="icon ion-play"></i>
+              </button>
+
+              <button ng-click="landscapeCtrl.stop()" class="button button-positive">
+                <i class="icon ion-stop"></i>
+              </button>
+            </div>
+
+            <div style="height: 20px"></div>
+
+            <div class="wrap-centered-button">
+              <button class="button button-positive" ng-click="landscapeCtrl.markCompleted()">Mark as completed</button>
+            </div>
           </div>
 
-          <div class="wrap-centered-button">
-            <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.player.playing" class="button button-positive">
-              <i class="icon ion-pause"></i>
-            </button>
-
-            <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.player.playing" class="button button-positive">
-              <i class="icon ion-play"></i>
-            </button>
-
-            <button ng-click="landscapeCtrl.stop()" class="button button-positive">
-              <i class="icon ion-stop"></i>
-            </button>
-          </div>
-
-          <div style="height: 20px"></div>
-
-          <div class="wrap-centered-button">
-            <button class="button button-positive" ng-click="landscapeCtrl.markCompleted()">Mark as completed</button>
-          </div>
-
-        </div>
       </ion-content>
   </ion-view>
+</div>

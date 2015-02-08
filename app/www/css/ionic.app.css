@@ -7040,3 +7040,40 @@ a.button {
 
 .wrap-centered-button {
   text-align: center; }
+
+.bg-landscape {
+  height: 100%;
+  width: 100%;
+  background-size: cover; }
+  .bg-landscape .pane, .bg-landscape .view {
+    background: transparent; }
+
+.bg-ocean {
+  background-image: url('../bg/ocean.jpg'); }
+
+.bg-cavern {
+  background-image: url('../bg/cavern.jpg'); }
+
+.bg-christmas {
+  background-image: url('../bg/christmas.png'); }
+
+.bg-desert {
+  background-image: url('../bg/desert.jpg'); }
+
+.bg-dock-city {
+  background-image: url('../bg/dock-city.jpg'); }
+
+.bg-mountain {
+  background-image: url('../bg/mountain.jpg'); }
+
+.bg-seaside {
+  background-image: url('../bg/seaside.jpg'); }
+
+.bg-space {
+  background-image: url('../bg/space.jpg'); }
+
+.bg-woods {
+  background-image: url('../bg/woods.jpg'); }
+
+.bg-swamp {
+  background-image: url('../bg/swamp.jpg'); }

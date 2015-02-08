@@ -17,13 +17,13 @@
               ng-class="{ selected: homeCtrl.task.landscape == homeCtrl.landscapeA}" 
               ng-click="homeCtrl.selectLandscape(homeCtrl.landscapeA)" 
               class="landscape landscape-a" 
-              src="img/ocean.png">
+              ng-src="thumbs/{{ homeCtrl.landscapeA }}.jpg">
 
             <img 
               ng-class="{ selected: homeCtrl.task.landscape == homeCtrl.landscapeB}" 
               ng-click="homeCtrl.selectLandscape(homeCtrl.landscapeB)" 
               class="landscape landscape-b" 
-              src="img/dock-city.png">
+              ng-src="thumbs/{{ homeCtrl.landscapeB }}.jpg">
           </div>
 
 
