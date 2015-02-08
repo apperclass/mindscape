@@ -3,7 +3,7 @@
 angular.module('history', [])
 
     .factory('History', function() {
-        var completedTasks = [];
+        var completedTasks = JSON.parse(window.localStorage['history']|| '[]');
 
         return {
             /**
@@ -17,6 +17,9 @@ angular.module('history', [])
                     duration: task.getCompletedInFormatted()
                 };
                 completedTasks.push(completedTask);
+            },
+            save: function(){
+                window.localStorage['history'] = JSON.stringify(completedTasks);
             },
             /**
              * Get all completed Tasks

@@ -71,7 +71,7 @@ angular.module('states.landscape', ['audio','task','time', 'history'])
             $interval.cancel(interval);
             CurrentTask.completedIn = (CurrentTask.duration * 60) - Timer.counter;
             History.pushCompletedTask(CurrentTask);
+            History.save();
             $state.go('completed');
         };
-
     });
