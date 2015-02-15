@@ -23,10 +23,22 @@ angular.module('audio', [])
                 this.ambienceAudio.volume = task.getAmbienceVolume();
             },
             /**
+             * Change the task
+             * @param task
+             */
+            changeTask: function(task){
+                this.musicAudio.pause();
+                this.ambienceAudio.pause();
+                this.musicAudio = new Audio(task.getMusicSrc());
+                this.ambienceAudio = new Audio(task.getAmbienceSrc());
+                this.musicAudio.volume = task.getMusicVolume();
+                this.ambienceAudio.volume = task.getAmbienceVolume();
+                this.playing = true;
+            },
+            /**
              * Play
              */
             play: function(){
-                console.log(this);
                 this.musicAudio.play();
                 this.ambienceAudio.play();
                 this.playing = true;

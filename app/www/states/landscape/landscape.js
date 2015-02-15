@@ -19,7 +19,7 @@ angular.module('states.landscape', ['audio','task','time', 'history','n3-pie-cha
         this.Timer = Timer;
         this.clock = {
             data: [{label: "", value: 0, suffix: "", color: "#FFF"}],
-            options: {thickness: 15, mode: "gauge", total: CurrentTask.duration * 60}
+            options: {thickness: 12, mode: "gauge", total: CurrentTask.duration * 60}
         }
 
         Timer.init(CurrentTask.duration * 60);

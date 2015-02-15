@@ -7,8 +7,15 @@
     <ion-content>
 
         <ion-list>
-            <ion-item ng-repeat="task in historyCtrl.tasks">
-                {{task.duration}} - {{ task.name }} - {{ task.landscape }}
+            <ion-item ng-repeat="task in historyCtrl.tasks" class="history-item-wrapper">
+                <div class="history-line"></div>
+                <div class="history-item">
+                    <div class="history-duration">{{task.duration}}</div>
+                    <div class="history-text">
+                        <div class="history-task">{{ task.name }}</div>
+                        <div class="history-landscape">{{ task.landscape }}</div>
+                    </div>
+                </div>
             </ion-item>
         </ion-list>
 

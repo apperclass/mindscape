@@ -70,8 +70,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     background-image: url('../bg/ocean.jpg');
 }
 
-.bg-cavern{
-    background-image: url('../bg/cavern.jpg');
+.bg-cave{
+    background-image: url('../bg/cave.jpg');
 }
 
 .bg-christmas{
@@ -86,8 +86,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     background-image: url('../bg/dock-city.jpg');
 }
 
-.bg-mountain{
-    background-image: url('../bg/mountain.jpg');
+.bg-mountains{
+    background-image: url('../bg/mountains.jpg');
 }
 
 .bg-seaside{
@@ -126,15 +126,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     position: absolute;
     text-align: center;
     color: white;
-    line-height: 150px;
+    line-height: 120px;
     margin: 0 auto;
     width: 100%;
 }
 
 #pie-chart-wrapper{
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     margin: 0 auto;
     .legend-value{
         display: none;
@@ -184,4 +184,53 @@ label.item{
 #landscape-choose-title{
     text-align: center;
     color: #494949;
+}
+
+.history-duration{
+    color: white;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 60px;
+    line-height: 55px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 4px solid #ffb4a6;
+    background-color: #f48361;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.history-line{
+    background-color: #f48361;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 33px;
+    width: 4px;
+}
+
+.history-text{
+    padding-left: 70px;
+    padding-top: 5px;
+}
+
+.history-item-wrapper{
+    padding: 5px;
+    border: 0px solid #FFF;
+}
+
+.history-item{
+    position: relative;
+    min-height: 60px;
+}
+
+.history-landscape{
+    color: #017afc;
+}
+
+.history-task{
+    color: #494949;
+    font-weight: bold;
 }
