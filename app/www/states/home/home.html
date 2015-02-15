@@ -8,11 +8,11 @@
   </ion-nav-buttons>
 
 
-      <ion-content>
+      <ion-content scroll="false">
 
         <div class="list list-inset">
           <!-- Task name-->
-          <label class="item item-input">
+          <label class="item item-input" style="padding:0;">
             <input ng-model="homeCtrl.task.name" type="text" placeholder="Task Name">
           </label>{{task.name}}
           <!-- Time -->
@@ -20,6 +20,8 @@
                   <i class="icon ion-clock"></i> <span>{{homeCtrl.task.duration}}</span>
                   <input ng-model="homeCtrl.task.duration" type="range" name="duration"  min="5" max="30" step="5">
           </div>
+
+          <div style="height:20px;"></div>
 
           <div class="landscape-switch">
             <img 
@@ -35,20 +37,27 @@
               ng-src="thumbs/{{ homeCtrl.landscapeB }}.jpg">
           </div>
 
+          <h2 id="landscape-choose-title">{{ homeCtrl.task.landscape }}</h2>
+        </div>
 
+
+
+
+        <div class="bottom-box-controllers">
           <!-- Volume -->
           <div class="range">
-                  <i class="icon ion-music-note"></i>
-                  <input type="range" name="balance" ng-model="homeCtrl.task.balance"  min="0" max="100" step="1">
-                  <i class="icon ion-leaf"></i>
+            <i class="icon ion-music-note"></i>
+            <input type="range" name="balance" ng-model="homeCtrl.task.balance"  min="0" max="100" step="1">
+            <i class="icon ion-leaf"></i>
           </div>
 
           <div class="wrap-centered-button">
-            <button ng-click="homeCtrl.start()" class="button button-positive">
+            <button ng-click="homeCtrl.start()" class="button button-positive square-rounded-button">
               <i class="icon ion-play"></i>
             </button>
           </div>
-
         </div>
+
+
       </ion-content>
   </ion-view>

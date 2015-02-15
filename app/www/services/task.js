@@ -32,7 +32,7 @@ angular.module('task', [])
              * @returns {string}
              */
             getMusicSrc: function(){
-                return 'audio/' + this.landscape + '-music-1min.mp3';
+                return 'audio/' + this.landscape + '-music.mp3';
             },
 
             /**
@@ -40,7 +40,7 @@ angular.module('task', [])
              * @returns {string}
              */
             getAmbienceSrc: function(){
-               return 'audio/' + this.landscape + '-ambience-1min.mp3';
+               return 'audio/' + this.landscape + '-ambience.mp3';
             },
 
             /**

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('states.landscape', ['audio','task','time', 'history'])
+angular.module('states.landscape', ['audio','task','time', 'history','n3-pie-chart'])
 
     .config(function ($stateProvider) {
 
@@ -12,10 +12,15 @@ angular.module('states.landscape', ['audio','task','time', 'history'])
         });
     })
     .controller('LandscapeCtrl', function(CurrentTask, Player, Timer, $interval, $state, History){
+        var ctrl = this;
         this.pause = false;
         this.task = CurrentTask;
         this.Player = Player;
         this.Timer = Timer;
+        this.clock = {
+            data: [{label: "", value: 0, suffix: "", color: "#FFF"}],
+            options: {thickness: 15, mode: "gauge", total: CurrentTask.duration * 60}
+        }
 
         Timer.init(CurrentTask.duration * 60);
         Player.init(CurrentTask);
@@ -26,6 +31,7 @@ angular.module('states.landscape', ['audio','task','time', 'history'])
          */
         function timeUpdate(){
             Timer.counter--;
+            ctrl.clock.data[0].value = CurrentTask.duration * 60 - Timer.counter;
             if (Timer.counter < 1) {
                 Player.stop();
                 $interval.cancel(interval);

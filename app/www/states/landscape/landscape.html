@@ -1,40 +1,49 @@
 <div class="bg-{{landscapeCtrl.task.landscape}} bg-landscape">
 <ion-view view-title="Landscape">
-      <ion-content>
+      <ion-content scroll="false">
 
           <div class="list list-inset" style="background: transparent;">
-            <h1>{{landscapeCtrl.task.name}}</h1>
+              <h1 id="landscape-title">{{landscapeCtrl.task.name}}</h1>
 
-            <h2>{{landscapeCtrl.Timer.getFormattedCounter()}}</h2>
-            <h3>Playing: {{landscapeCtrl.task.landscape}}</h3>
+              <div id="pie-chart-wrapper">
+                <h2 id="pie-chart-countdown">{{landscapeCtrl.Timer.getFormattedCounter()}}</h2>
+                <pie-chart data="landscapeCtrl.clock.data" options="landscapeCtrl.clock.options"></pie-chart>
+              </div>
 
-            <!-- Volume -->
-            <div class="range">
-              <i class="icon ion-music-note"></i>
-              <input ng-change="landscapeCtrl.updateBalance()" type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="0" max="100" step="1">
-              <i class="icon ion-leaf"></i>
-            </div>
 
-            <div class="wrap-centered-button">
-              <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.Player.playing" class="button button-positive">
-                <i class="icon ion-pause"></i>
-              </button>
 
-              <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.Player.playing" class="button button-positive">
-                <i class="icon ion-play"></i>
-              </button>
 
-              <button ng-click="landscapeCtrl.stop()" class="button button-positive">
-                <i class="icon ion-stop"></i>
-              </button>
-            </div>
-
-            <div style="height: 20px"></div>
-
-            <div class="wrap-centered-button">
-              <button class="button button-positive" ng-click="landscapeCtrl.markCompleted()">Mark as completed</button>
-            </div>
           </div>
+
+
+        <div class="bottom-box-controllers">
+          <!-- Volume -->
+          <div class="range range-light">
+            <i class="icon ion-music-note light"></i>
+            <input ng-change="landscapeCtrl.updateBalance()" type="range" name="balance" ng-model="landscapeCtrl.task.balance" min="0" max="100" step="1">
+            <i class="icon ion-leaf light"></i>
+          </div>
+
+          <div class="wrap-centered-button">
+            <button ng-click="landscapeCtrl.pause()" ng-show="landscapeCtrl.Player.playing" class="button button-light square-rounded-button">
+              <i class="icon ion-pause"></i>
+            </button>
+
+            <button ng-click="landscapeCtrl.play()" ng-hide="landscapeCtrl.Player.playing" class="button button-light square-rounded-button">
+              <i class="icon ion-play"></i>
+            </button>
+
+            <button ng-click="landscapeCtrl.stop()" class="button button-light square-rounded-button">
+              <i class="icon ion-stop"></i>
+            </button>
+          </div>
+
+          <div style="height: 20px"></div>
+
+          <div class="wrap-centered-button">
+            <button class="button button-positive" ng-click="landscapeCtrl.markCompleted()">Mark as completed</button>
+          </div>
+        </div>
 
       </ion-content>
   </ion-view>

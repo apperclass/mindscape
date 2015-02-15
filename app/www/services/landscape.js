@@ -5,7 +5,7 @@ angular.module('landscape', ['underscore'])
     .factory('LandscapeRepository', function(_) {
         var levels = [
             {
-                name: 'cavern'
+                name: 'cave'
             },
             {
                 name: 'christmas'
@@ -20,7 +20,7 @@ angular.module('landscape', ['underscore'])
                 name: 'desert'
             },
             {
-                name: 'mountain'
+                name: 'mountains'
             },
             {
                 name: 'seaside'
